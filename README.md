@@ -14,6 +14,8 @@ Tasteful gives Claude Code a memory. Instead of treating every coding session as
 
 ## Skills
 
+### Tasteful workflow
+
 | Skill | Command | Description |
 |-------|---------|-------------|
 | **Onboard** | `/tasteful-onboard` | Deep project analysis. Creates product info, principles, decisions log, UI flows, and test infrastructure |
@@ -22,6 +24,16 @@ Tasteful gives Claude Code a memory. Instead of treating every coding session as
 | **Learn** | `/tasteful-learn` | Add or update principles in the knowledge base |
 | **Principles** | `/tasteful-principles` | View, search, and manage the project knowledge base |
 | **Sync** | `/tasteful-sync` | Reconcile the knowledge base with recent code changes |
+
+### Bundled engineering skills
+
+These skills are used by tasteful agents (PM and engineers) during implementation for code quality and design decisions:
+
+| Skill | Description |
+|-------|-------------|
+| **vercel-react-best-practices** | 57 rules for React/Next.js performance — eliminating waterfalls, bundle optimization, server-side performance, re-render optimization |
+| **vercel-composition-patterns** | Component architecture patterns — compound components, explicit variants, state management, React 19 patterns |
+| **web-design-guidelines** | Web UI best practices — accessibility, responsive design, interaction patterns |
 
 ## Installation
 
