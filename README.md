@@ -25,16 +25,6 @@ Tasteful gives Claude Code a memory. Instead of treating every coding session as
 | **Principles** | `/tasteful-principles` | View, search, and manage the project knowledge base |
 | **Sync** | `/tasteful-sync` | Reconcile the knowledge base with recent code changes |
 
-### Bundled engineering skills
-
-These skills are used by tasteful agents (PM and engineers) during implementation for code quality and design decisions:
-
-| Skill | Description |
-|-------|-------------|
-| **vercel-react-best-practices** | 57 rules for React/Next.js performance — eliminating waterfalls, bundle optimization, server-side performance, re-render optimization |
-| **vercel-composition-patterns** | Component architecture patterns — compound components, explicit variants, state management, React 19 patterns |
-| **web-design-guidelines** | Web UI best practices — accessibility, responsive design, interaction patterns |
-
 ## Installation
 
 Requires [Claude Code](https://claude.ai/code).
@@ -47,12 +37,20 @@ Requires [Claude Code](https://claude.ai/code).
 /plugin install tasteful@tasteful
 ```
 
-## Dependency
+## Dependencies
 
-`/tasteful-implement` requires the [superpowers](https://github.com/obra/superpowers) plugin for its engineering workflow (git worktrees, brainstorming, planning, subagent-driven development, TDD, verification).
+`/tasteful-implement` requires these for its engineering workflow:
+
+**[superpowers](https://github.com/obra/superpowers)** — git worktrees, brainstorming, planning, subagent-driven development, TDD, verification.
 
 ```bash
 /plugin install superpowers@claude-plugins-official
+```
+
+**[Vercel Agent Skills](https://github.com/vercel-labs/agent-skills)** — React/Next.js best practices, component composition patterns, and web design guidelines. Used by PM and engineer agents for code quality and design decisions.
+
+```bash
+npx skills add vercel-labs/agent-skills
 ```
 
 ## Getting started
