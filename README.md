@@ -40,7 +40,6 @@ Requires [Claude Code](https://claude.ai/code).
 `/tasteful-implement` requires the [superpowers](https://github.com/obra/superpowers) plugin for its engineering workflow (git worktrees, brainstorming, planning, subagent-driven development, TDD, verification).
 
 ```bash
-/plugin marketplace add anthropics/claude-plugins-official
 /plugin install superpowers@claude-plugins-official
 ```
 
