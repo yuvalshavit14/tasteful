@@ -1,0 +1,18 @@
+{
+  "name": "tasteful",
+  "description": "AI-assisted development with product context",
+  "owner": {
+    "name": "Yuval Shavit"
+  },
+  "plugins": [
+    {
+      "name": "tasteful",
+      "description": "AI-assisted development with product context — onboard projects, build features with knowledge-aware agents, and grow a living knowledge base",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Yuval Shavit"
+      }
+    }
+  ]
+}

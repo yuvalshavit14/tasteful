@@ -1,0 +1,12 @@
+{
+  "name": "tasteful",
+  "description": "AI-assisted development with product context — onboard projects, build features with knowledge-aware agents, and grow a living knowledge base",
+  "version": "0.1.0",
+  "author": {
+    "name": "Yuval Shavit"
+  },
+  "homepage": "https://github.com/yuvalshavit14/tasteful",
+  "repository": "https://github.com/yuvalshavit14/tasteful",
+  "license": "MIT",
+  "keywords": ["skills", "product-context", "onboarding", "knowledge-base", "implementation", "ai-development"]
+}
