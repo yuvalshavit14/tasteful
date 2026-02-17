@@ -43,7 +43,7 @@ Prompt the agent to map out:
 - For each user-facing flow: entry point, key steps, outcome
 - Authentication flow: sign up, sign in, protected routes
 - Any middleware, guards, or redirects
-- For each route: auth requirements (look for useAuth, AuthGuard, createClient + getUser in the page or its layout)
+- For each route: auth requirements (look for useAuth, AuthGuard, createClient + getUser, getSession, requireAuth, cookies().get, getCurrentUser, useSession, or middleware-based auth checks in the page or its layout)
 - What data/state each page expects (localStorage, URL params, context, database queries)
 - Navigation relationships (where does each page link to, what triggers navigation)
 
@@ -54,7 +54,7 @@ description: "Exploring UI design system and components"
 ```
 Prompt the agent to document:
 - Global styles (globals.css, theme files): CSS variables, color palette, typography scale
-- Tailwind config (or equivalent): custom colors, fonts, spacing, animations, breakpoints
+- Tailwind config: check for both `tailwind.config.ts` (Tailwind v3) and CSS-based `@theme` directives in `globals.css` (Tailwind v4). Note the version — v4 uses CSS-first configuration with no JS config file.
 - Component library: list all components under ui/ or components/, note which UI library (Radix, shadcn, Material, etc.)
 - Layout components: how pages are structured, responsive patterns
 - Animation/motion: which library (Framer Motion, CSS, etc.), philosophy (subtle vs expressive)
@@ -332,7 +332,7 @@ Wait for all responses before proceeding to Phase 5.
    e. Switch back to the original branch: `git checkout main`
    f. Confirm the overlay branch name matches what's in `test-config.json`.
 
-   **Important:** The overlay branch is NOT merged to main. It exists as a source of test files that are copied into engineer worktrees during the E2E testing phase of `/tasteful-implement`. The copied files are excluded from git via `.git/info/exclude` in each worktree.
+   **Important:** The overlay branch is NOT merged to main. It exists as a source of test files that are copied into engineer worktrees during the E2E testing phase of `/tasteful-implement`. The copied files will appear as untracked in the worktree — this is expected and they are cleaned up after testing.
 
 9. Confirm completion to the developer with a summary of what was created (product-info.md, principles.json, decisions-log.json, ui-flows.json, test-config.json, and the tasteful/test-overlay branch).
 

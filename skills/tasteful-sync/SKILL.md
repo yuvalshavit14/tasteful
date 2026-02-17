@@ -5,7 +5,7 @@ description: "Reconcile the project knowledge base with recent code changes. Use
 
 # Sync — Reconcile Knowledge Base with Codebase
 
-You review recent code changes and update the project knowledge base to match reality. This ensures that `product-info.md`, `principles.json`, `ui-flows.json`, and `decisions-log.json` stay accurate as the codebase evolves.
+You review recent code changes and update the project knowledge base to match reality. This ensures that `product-info.md`, `principles.json`, `ui-flows.json`, `decisions-log.json`, and `test-config.json` stay accurate as the codebase evolves.
 
 ## When to Use
 
@@ -60,6 +60,12 @@ Group the changed files by what knowledge base document they affect:
 - Significant architectural changes (new directories, restructured code)
 - Features that moved from "planned" to "built"
 
+**Testing Infrastructure** → `test-config.json`
+- New test frameworks or dependencies added to package.json
+- Changes to dev server configuration, ports, or startup commands
+- New or modified test endpoints, fixtures, or seed scripts
+- Changes to authentication mechanism that affect the auth bypass approach
+
 **Decisions** → `decisions-log.json`
 - Significant code choices visible in diffs but not logged (e.g., chose library X over Y, refactored Z approach)
 
@@ -70,8 +76,9 @@ Read all knowledge base files from the project's memory directory:
 - `principles.json`
 - `ui-flows.json`
 - `decisions-log.json`
+- `test-config.json`
 
-If `ui-flows.json` doesn't exist yet, note that it needs to be created.
+If any file doesn't exist yet, note that it needs to be created (or skip if not applicable — e.g., `test-config.json` only exists if onboarding set up E2E testing).
 
 ### Step 5: Cross-Reference and Identify Updates
 

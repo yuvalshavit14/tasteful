@@ -83,7 +83,9 @@ When the developer wants to review recent decisions and promote some to principl
 
 ### Step 1: Read Recent Decisions
 
-Read `decisions-log.json` from the project's memory directory. Filter for decisions with `source: "developer"`. If the developer specifies a date range or feature, filter further.
+Read `decisions-log.json` from the project's memory directory. If the file doesn't exist, tell the developer: "No decisions log found. Run `/tasteful-onboard` first, or build a feature with `/tasteful-implement` to generate decisions." and stop.
+
+Filter for decisions with `source: "developer"`. If the developer specifies a date range or feature, filter further.
 
 Present the filtered decisions:
 ```

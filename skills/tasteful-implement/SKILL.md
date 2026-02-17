@@ -99,10 +99,7 @@ After building is complete, test the feature end-to-end against the acceptance c
      git show tasteful/test-overlay:<path> > <path>  (for each file on the overlay branch under that path)
      ```
      Or use: `git checkout tasteful/test-overlay -- <overlay_paths>` then immediately `git reset HEAD <overlay_paths>` to unstage them.
-   - Add the overlay paths to `.git/info/exclude` so they don't appear in `git status`:
-     ```
-     echo "<path>" >> .git/info/exclude  (for each overlay path)
-     ```
+   - The overlay files will appear as untracked in `git status` — this is expected. They are temporary and will be cleaned up after testing. Do NOT try to add them to `.git/info/exclude` (this breaks in git worktrees where `.git` is a file, not a directory).
 
 **2. Start the local environment:**
    - Run the `start_command` from test-config.json (e.g., `npm run dev`)
@@ -124,7 +121,6 @@ After building is complete, test the feature end-to-end against the acceptance c
 **5. Clean up the overlay:**
    - Delete the overlay files from your worktree (rm -rf the overlay paths)
    - Stop the dev server
-   - The `.git/info/exclude` entries are harmless to leave
 
 ### Completion
 
@@ -139,7 +135,7 @@ Log ALL product/UX decisions made during this session to `decisions-log.json` �
   "topic": "[Topic]",
   "question": "[What the question was]",
   "decision": "[What was decided]",
-  "source": "product-info | principle | developer",
+  "source": "product-info | principle | developer | design-guidelines",
   "rationale": "[Why]",
   "feature": "[Feature name]"
 }
@@ -390,8 +386,7 @@ After building is complete, test your feature end-to-end against the acceptance 
    - Read `test-config.json` from the project's memory directory for the `overlay_branch` name and `overlay_paths`
    - Copy files from the overlay branch into your worktree:
      `git checkout tasteful/test-overlay -- <overlay_paths>` then `git reset HEAD <overlay_paths>` to unstage
-   - Add the overlay paths to `.git/info/exclude`:
-     `echo "<path>" >> .git/info/exclude` for each overlay path
+   - The overlay files will appear as untracked in `git status` — this is expected. They are temporary and cleaned up after testing. Do NOT try to add them to `.git/info/exclude` (this breaks in git worktrees where `.git` is a file, not a directory).
 
 **2. Start the local environment:**
    - Run the `start_command` from test-config.json (e.g., `npm run dev &`)
@@ -413,7 +408,6 @@ After building is complete, test your feature end-to-end against the acceptance 
 **5. Clean up:**
    - Delete the overlay files (`rm -rf <overlay_paths>`)
    - Stop the dev server
-   - `.git/info/exclude` entries are harmless to leave
 
 ### Phase 5 — Completion
 
