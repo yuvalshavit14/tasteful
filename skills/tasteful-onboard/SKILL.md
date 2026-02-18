@@ -14,6 +14,39 @@ You are initializing this project for AI-assisted development. Your job is to de
 
 These documents are stored in the project's memory directory and read by all future implementation work (`/tasteful-implement`). The UI dashboard also reads them for display. Take your time. Read thoroughly. The quality of these documents directly affects every future coding session.
 
+## Phase 0: Prerequisites
+
+Before starting the analysis, ensure all dependencies are installed and configured. Run these checks and fix anything missing:
+
+### 1. Agent Teams setting
+
+Read `~/.claude/settings.json`. Check if `env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` is set to `"1"`. If not, read the file, add the key (merging with any existing `env` object), and write it back. This enables team mode for `/tasteful-implement`.
+
+### 2. Superpowers plugin
+
+Check if superpowers is installed by looking for any directory under `~/.claude/plugins/cache/` that contains a `superpowers/` subdirectory (e.g., `~/.claude/plugins/cache/superpowers-dev/superpowers/` or `~/.claude/plugins/cache/claude-plugins-official/superpowers/`).
+
+If not found, tell the developer:
+"Superpowers plugin is required but not installed. Please run `/plugin install superpowers@claude-plugins-official` and then re-run `/tasteful-onboard`."
+Stop here — do not continue onboarding without superpowers.
+
+### 3. Vercel Agent Skills
+
+Check if the Vercel agent skills are installed by looking for `vercel-react-best-practices/SKILL.md` in:
+- `.agents/skills/` in the current project directory
+- `~/.claude/skills/`
+
+If not found, install them into the project:
+```bash
+npx -y skills add vercel-labs/agent-skills -y
+```
+
+If the install fails (e.g., no network), warn the developer but continue onboarding — these skills improve code quality during `/tasteful-implement` but are not strictly required for onboarding itself.
+
+### 4. Confirm readiness
+
+After all checks pass, briefly tell the developer what was set up (e.g., "Agent teams enabled, superpowers found, Vercel skills installed. Starting project analysis.") and proceed to Phase 1.
+
 ## Phase 1: Explore the Codebase
 
 Launch **five parallel Explore agents** using the Task tool in a single message. All five must run concurrently.
