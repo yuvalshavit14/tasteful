@@ -35,23 +35,22 @@ Requires [Claude Code](https://claude.ai/code).
 
 # Install the plugin
 /plugin install tasteful@tasteful
-```
 
-## Dependencies
-
-`/tasteful-implement` requires these for its engineering workflow:
-
-**[superpowers](https://github.com/obra/superpowers)** — git worktrees, brainstorming, planning, subagent-driven development, TDD, verification.
-
-```bash
+# Install superpowers (required dependency)
 /plugin install superpowers@claude-plugins-official
 ```
 
-**[Vercel Agent Skills](https://github.com/vercel-labs/agent-skills)** — React/Next.js best practices, component composition patterns, and web design guidelines. Used by PM and engineer agents for code quality and design decisions.
+That's it. Run `/tasteful-onboard` and it will check and install everything else automatically.
 
-```bash
-npx skills add vercel-labs/agent-skills
-```
+## Dependencies
+
+Tasteful relies on external skills and settings for its full workflow. `/tasteful-onboard` automatically checks and installs these during its prerequisites phase — you don't need to set them up manually.
+
+| Dependency | What it does | Install method | Auto-installed by onboard? |
+|------------|-------------|----------------|---------------------------|
+| [superpowers](https://github.com/obra/superpowers) | Git worktrees, brainstorming, planning, subagent-driven development, TDD, verification | `/plugin install superpowers@claude-plugins-official` | No — must be installed before onboarding (checked, blocks if missing) |
+| [Vercel Agent Skills](https://github.com/vercel-labs/agent-skills) | React/Next.js best practices, component composition patterns, web design guidelines | `npx skills add vercel-labs/agent-skills` | Yes — installed into the project automatically |
+| `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` | Enables team mode for parallel feature development | Set in `~/.claude/settings.json` | Yes — configured automatically |
 
 ## Getting started
 
@@ -62,6 +61,7 @@ After installation, open any project and run:
 ```
 
 This takes a few minutes. Tasteful will:
+- Check and install dependencies (Vercel skills, agent teams setting)
 - Explore your codebase with parallel agents
 - Ask you a few questions it can't answer from code alone
 - Create a knowledge base in your project's memory directory
